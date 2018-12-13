@@ -169,10 +169,7 @@ JOptionPane.showMessageDialog(null,"Agendador de compras,para uma organizaão ad
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
 TelaInicial ti=new TelaInicial();
-Adcionar ad  = new Adcionar();        // TODO add your handling code here:
-//Adciona ad = new Adciona();
-//ad.setVisible(true);
-
+Adicionar ad  = new Adicionar();        
 
 ti.add(ad);
 //ad.setVisible(true);

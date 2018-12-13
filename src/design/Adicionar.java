@@ -12,12 +12,12 @@ import javax.swing.JOptionPane;
  *
  * @author home
  */
-public class Adcionar extends javax.swing.JPanel {
+public class Adicionar extends javax.swing.JPanel {
 
     /**
      * Creates new form Adcionar
      */
-    public Adcionar() {
+    public Adicionar() {
         initComponents();
     }
 
