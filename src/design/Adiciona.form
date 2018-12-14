@@ -53,13 +53,10 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace pref="68" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="addBtn" alignment="1" min="-2" pref="106" max="-2" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="128" pref="214" max="32767" attributes="0"/>
-                          <Component id="addBtn" min="-2" pref="106" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="valorLabel" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Component id="descLabel" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -172,6 +169,9 @@
         <Component class="java.awt.TextField" name="descTxt">
         </Component>
         <Component class="java.awt.TextField" name="valorTxt">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="valorTxtActionPerformed"/>
+          </Events>
         </Component>
         <Component class="java.awt.Label" name="valorLabel">
           <Properties>

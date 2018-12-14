@@ -68,6 +68,12 @@ public class Adiciona extends javax.swing.JFrame {
 
         descLabel.setText("Descrição prod");
 
+        valorTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                valorTxtActionPerformed(evt);
+            }
+        });
+
         valorLabel.setText("Preço");
 
         wppLabel.setText("Whatsapp");
@@ -79,12 +85,10 @@ public class Adiciona extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(68, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(addBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(128, 214, Short.MAX_VALUE)
-                        .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(valorLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(descLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -171,9 +175,13 @@ public class Adiciona extends javax.swing.JFrame {
   
   produto prod = new produto();
   prod.setTipo(descTxt.getText());
-  prod.setValor(valorTxt.getAlignmentX());
+  prod.setValor(Float.parseFloat(valorTxt.getText()));
         JOptionPane.showMessageDialog(null,"Adcionando ao usuário com sucesso");        // TODO add your handling code here:
     }//GEN-LAST:event_addBtnActionPerformed
+
+    private void valorTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valorTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_valorTxtActionPerformed
 
     /**
      * @param args the command line arguments
