@@ -6,6 +6,8 @@
 
 package design;
 
+import classes.conexao;
+import java.sql.Connection;
 import javax.swing.JOptionPane;
 
 /**
@@ -159,7 +161,14 @@ public class TelaInicial extends javax.swing.JFrame {
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
 JOptionPane.showMessageDialog(null, "welcome "+txtnome.getText());
-        // TODO add your handling code here:
+conexao con = new conexao();
+Connection con2=con.conectando();
+if(con2!=null)
+        System.out.println("conectou");
+else
+            System.out.println("not connected");
+
+// TODO add your handling code here:
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
