@@ -165,9 +165,13 @@ conexao con = new conexao();
 Connection con2=con.conectando();
 if(con2!=null)
         System.out.println("conectou");
-else
+else{
             System.out.println("not connected");
+            System.out.println(con2);
+            System.out.println(con.conectando());
 
+
+}
 // TODO add your handling code here:
     }//GEN-LAST:event_btn1ActionPerformed
 
