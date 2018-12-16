@@ -4,10 +4,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-/**
- *
- * @author home
- */
+
 public class conexao {
     private String user="root";
     private String pass="";
