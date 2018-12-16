@@ -7,6 +7,7 @@
 package design;
 
 import classes.conexao;
+import classes.pessoa;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 
@@ -38,11 +39,13 @@ public class TelaInicial extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
+        panel1 = new java.awt.Panel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtnome = new javax.swing.JTextField();
         btn1 = new javax.swing.JButton();
+        panel2 = new java.awt.Panel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -57,6 +60,17 @@ public class TelaInicial extends javax.swing.JFrame {
 
         jMenuItem2.setText("jMenuItem2");
 
+        javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
+        panel1.setLayout(panel1Layout);
+        panel1Layout.setHorizontalGroup(
+            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        panel1Layout.setVerticalGroup(
+            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel2.setText("Nome");
@@ -67,6 +81,17 @@ public class TelaInicial extends javax.swing.JFrame {
                 btn1ActionPerformed(evt);
             }
         });
+
+        javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
+        panel2.setLayout(panel2Layout);
+        panel2Layout.setHorizontalGroup(
+            panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        panel2Layout.setVerticalGroup(
+            panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -81,11 +106,13 @@ public class TelaInicial extends javax.swing.JFrame {
                         .addComponent(txtnome, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btn1))
                 .addContainerGap(191, Short.MAX_VALUE))
+            .addComponent(panel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(108, 108, 108)
+                .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtnome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -142,9 +169,9 @@ public class TelaInicial extends javax.swing.JFrame {
             .addGap(0, 439, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 15, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 15, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,14 +190,13 @@ public class TelaInicial extends javax.swing.JFrame {
 JOptionPane.showMessageDialog(null, "welcome "+txtnome.getText());
 conexao con = new conexao();
 Connection con2=con.conectando();
-if(con2!=null)
+pessoa p1=new pessoa();
+if(con2!=null){
         System.out.println("conectou");
-else{
+        System.out.println("aloha:"+p1.column());
+
+}else{
             System.out.println("not connected");
-            System.out.println(con2);
-            System.out.println(con.conectando());
-
-
 }
 // TODO add your handling code here:
     }//GEN-LAST:event_btn1ActionPerformed
@@ -181,11 +207,8 @@ JOptionPane.showMessageDialog(null,"Agendador de compras,para uma organizaão ad
     }//GEN-LAST:event_jMenu3ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-TelaInicial ti=new TelaInicial();
 Adicionar ad  = new Adicionar();        
-
-ti.add(ad);
-//ad.setVisible(true);
+ad.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
@@ -237,6 +260,8 @@ ti.add(ad);
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JToolBar jToolBar1;
+    private java.awt.Panel panel1;
+    private java.awt.Panel panel2;
     private javax.swing.JTextField txtnome;
     // End of variables declaration//GEN-END:variables
 }
