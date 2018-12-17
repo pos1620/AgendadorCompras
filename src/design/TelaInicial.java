@@ -193,7 +193,10 @@ Connection con2=con.conectando();
 pessoa p1=new pessoa();
 if(con2!=null){
         System.out.println("conectou");
-        System.out.println("aloha:"+p1.camposDivididos());
+        p1.setNome("alx");
+        p1.setProduto("alx2");
+        System.out.println("CampoDivido:"+p1.vars()[0]);
+        System.out.println("CampoDivido:"+p1.vars()[1]);
 
 }else{
             System.out.println("not connected");

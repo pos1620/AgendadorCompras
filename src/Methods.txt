@@ -1,0 +1,27 @@
+/*  PreparedStatement ps=con.conectando().prepareStatement("select * from pessoa");
+        ResultSet rs=ps.executeQuery();
+        ResultSetMetaData rsmd=rs.getMetaData();
+
+        for(byte i=1;i<=QuantColumn();i++)
+        stmt.setString(i,(String)rsmd.getColumnName(i));
+        stmt.execute();
+        stmt.close();
+	System.out.println("Gravado!");
+	con.conectando().close();
+*/
+        
+       // String nms[]={nome,produto,url,wpp,endereco};
+
+	   
+	   
+	   
+	   
+	   //System.out.println("columns: "+rsmd.getColumnCount());  
+//System.out.println("Column Name of 1st column: "+rsmd.getColumnName(2));  
+//System.out.println("Column Type Name of 1st column: "+rsmd.getColumnTypeName(2)); 
+
+
+
+
+
+//String x="\"nome\"".replace("\""," ");

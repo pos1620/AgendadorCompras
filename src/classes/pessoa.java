@@ -69,29 +69,17 @@ private String endereco;
     try{	
 	stmt = con.conectando().prepareStatement("insert into pessoa ("+column()+") values ("+interr()+")");
         
-  
+        
         for(byte i=1;i<=QuantColumn();i++)
-        stmt.setString(i,""+camposDivididos()[i-1]+"");
+        stmt.setString(i,vars()[i-1]);
         stmt.execute();
         stmt.close();
 	System.out.println("Gravado!");
 	con.conectando().close();
-/*        
- String x=""+nome+"";
-        stmt.setString(1,x);
-        stmt.setString(2,produto);
-        stmt.setString(3,getWpp());
-        stmt.setString(4,getUrl());
-        stmt.setString(5,getEndereco());
-        stmt.execute();
-        stmt.close();
-	System.out.println("Gravado!");
-	con.conectando().close();
-*/
     } 
 catch (SQLException e) {
 }
-    }//fim metodo InserirDados
+    }//fim metódo InserirDados
 
 
     
@@ -102,15 +90,14 @@ catch (SQLException e) {
 PreparedStatement ps=con.conectando().prepareStatement("select * from pessoa");
 ResultSet rs=ps.executeQuery();
 ResultSetMetaData rsmd=rs.getMetaData();
-//System.out.println("columns: "+rsmd.getColumnCount());  
-//System.out.println("Column Name of 1st column: "+rsmd.getColumnName(2));  
-//System.out.println("Column Type Name of 1st column: "+rsmd.getColumnTypeName(2)); 
+
+
 i=(byte) rsmd.getColumnCount();
             }
     catch(SQLException e){
     }
         return i;
-    }//fim classe QuantColumn
+    }//fim metódo QuantColumn
     
     
     
@@ -132,7 +119,7 @@ ResultSetMetaData rsmd=rs.getMetaData();
             catch(SQLException e){
     }
 return nms;
-}//fim classe columns[]
+}//fim metódo columns
     
 
  public String interr(){
@@ -151,9 +138,18 @@ return nms;
 String[] args=column().split("[,]");
 return args;
        //return Arrays.toString(args);
-}//fim metodo camposDivididos
+}//fim metódo camposDivididos
 
-    
+ 
+ public String[] vars(){
+//String x="\"nome\"".replace("\""," ");
+String n[]={nome,produto,url,wpp,endereco};
+     String nms[]=n;
+
+            return nms;
+ }//fim metodo vars 
+ 
+ 
 }//fim classe pessoa
 
 
