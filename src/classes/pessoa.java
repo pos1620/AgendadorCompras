@@ -67,18 +67,19 @@ private String endereco;
     //connecting to database
     public void InserirDados(){
     try{	
-	stmt = con.conectando().prepareStatement("insert into pessoa (nome,produto,url,wpp,bairro) values (?,?,?,?,?)");
-        /*
-byte inicio=1;
-interr c = '?';
-char virg = ',';
+	stmt = con.conectando().prepareStatement("insert into pessoa ("+column()+") values ("+interr()+")");
         
-for(byte i=1;i<=QuantColumn();i++){
-PreparedStatement stmt = con.prepareStatement("insert into pessoa (nome,produto,url,wpp,bairro) values ()");
-        }
-        */
-        stmt.setString(1,getNome());
-        stmt.setString(2,getProduto());
+  
+        for(byte i=1;i<=QuantColumn();i++)
+        stmt.setString(i,""+camposDivididos()[i-1]+"");
+        stmt.execute();
+        stmt.close();
+	System.out.println("Gravado!");
+	con.conectando().close();
+/*        
+ String x=""+nome+"";
+        stmt.setString(1,x);
+        stmt.setString(2,produto);
         stmt.setString(3,getWpp());
         stmt.setString(4,getUrl());
         stmt.setString(5,getEndereco());
@@ -86,7 +87,8 @@ PreparedStatement stmt = con.prepareStatement("insert into pessoa (nome,produto,
         stmt.close();
 	System.out.println("Gravado!");
 	con.conectando().close();
-} 
+*/
+    } 
 catch (SQLException e) {
 }
     }//fim metodo InserirDados
@@ -113,26 +115,44 @@ i=(byte) rsmd.getColumnCount();
     
     
     
-    public String[] column(){
-        String[] nms=null;
+    public String column(){
+        String nms="";
             try{
 PreparedStatement ps=con.conectando().prepareStatement("select * from pessoa");
 ResultSet rs=ps.executeQuery();
 ResultSetMetaData rsmd=rs.getMetaData();
-//System.out.println("columns: "+rsmd.getColumnCount());  
-for(byte i=0;i<QuantColumn();i++){
-    System.out.println("Column Name of 1st column: "+rsmd.getColumnName(i+1));  
- //   System.out.println(i);  
-    nms[i]=rsmd.getColumnName(i+1);
-}
-//System.out.println("Column Type Name of 1st column: "+rsmd.getColumnTypeName(2)); 
-            }
-    catch(SQLException e){
+
+    for(byte j=1;j<=QuantColumn();j++)
+        if(j==QuantColumn())
+    nms+=rsmd.getColumnName(j);
+            else
+    nms+=rsmd.getColumnName(j)+",";
+            }    
+
+            catch(SQLException e){
     }
 return nms;
-
 }//fim classe columns[]
     
+
+ public String interr(){
+ String interr="?";
+ 
+ for(byte j=1;j<=QuantColumn();j++)
+        if(j==QuantColumn())
+    interr+="";
+            else
+    interr+=",?";
+ return interr;
+ }//fim metodo interr   
+    
+ 
+ public String[] camposDivididos(){
+String[] args=column().split("[,]");
+return args;
+       //return Arrays.toString(args);
+}//fim metodo camposDivididos
+
     
 }//fim classe pessoa
 

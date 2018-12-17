@@ -152,8 +152,7 @@ public class Adicionar extends javax.swing.JFrame {
         p1.setProduto(produtoTxt.getText());
         p1.setEndereco(bairroTxt.getText());
         p1.setUrl(urlTxt.getText());
-        System.out.println("aloha"+p1.QuantColumn());
-//p1.InserirDados();
+p1.InserirDados();
        // produto prod = new produto();
        // prod.setTipo(descTxt.getText());
        // prod.setValor(Float.parseFloat(valorTxt.getText()));
