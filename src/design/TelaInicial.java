@@ -194,9 +194,10 @@ pessoa p1=new pessoa();
 if(con2!=null){
         System.out.println("conectou");
         p1.setNome("alx");
+//p1.vars()[0]="ko";
         p1.setProduto("alx2");
-        System.out.println("CampoDivido:"+p1.vars()[0]);
-        System.out.println("CampoDivido:"+p1.vars()[1]);
+        System.out.println("nome:"+p1.vars()[0]);
+        System.out.println("produto:"+p1.vars()[1]);
 
 }else{
             System.out.println("not connected");

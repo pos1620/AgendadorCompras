@@ -145,6 +145,34 @@ public class Adicionar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void setBranco(){
+pessoa p1 = new pessoa();
+        for(byte i=0;i<p1.QuantColumn();i++){
+            if(p1.vars()[i]==null)
+                switch(i){
+                    case 1:
+                        p1.setNome("");
+                    //    break;
+                    case 2:
+                        p1.setWpp("");
+                    //    break;
+                    case 3:
+                        p1.setProduto("");
+                    //    break;
+                    case 4:
+                        p1.setEndereco("");
+                    //    break;
+                    case 5:
+                        p1.setUrl("");
+                   //     break;
+                }
+}
+        //teste de impress~~ao dos valores,p saber se est~~ao imprimindo os valores 'vazio'
+            System.out.println(p1.camposDivididos()[1]+":"+p1.getProduto());
+            System.out.println(p1.camposDivididos()[2]+":"+p1.getWpp());
+            System.out.println(p1.camposDivididos()[3]+":"+p1.getUrl());
+    
+}
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         pessoa p1 = new pessoa();
         p1.setNome(nomeTxt.getText());
@@ -152,7 +180,8 @@ public class Adicionar extends javax.swing.JFrame {
         p1.setProduto(produtoTxt.getText());
         p1.setEndereco(bairroTxt.getText());
         p1.setUrl(urlTxt.getText());
-p1.InserirDados();
+        setBranco();
+        p1.InserirDados();
        // produto prod = new produto();
        // prod.setTipo(descTxt.getText());
        // prod.setValor(Float.parseFloat(valorTxt.getText()));
