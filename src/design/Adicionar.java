@@ -174,20 +174,24 @@ pessoa p1 = new pessoa();
     
 }
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
-        pessoa p1 = new pessoa();
-        //Generica gen=new Generica(); 
-        Generica.GO go =new Generica().new GO();
+      pessoa p1 = new pessoa();
+      Generica g1=new Generica(); 
+      produto prod = new produto();
         p1.setNome(nomeTxt.getText());
         p1.setWpp(wppTxt.getText());
         p1.setProduto(produtoTxt.getText());
         p1.setEndereco(bairroTxt.getText());
         p1.setUrl(urlTxt.getText());
         setBranco();
+    //  p1.InserirDados();
+      g1.InserirDados(p1);
       
-//        p1.InserirDados();
-       // produto prod = new produto();
-       // prod.setTipo(descTxt.getText());
-       // prod.setValor(Float.parseFloat(valorTxt.getText()));
+        prod.setTipo(descTxt.getText());
+        prod.setValor(Float.parseFloat(valorTxt.getText()));
+      g1.InserirDados(prod);
+        
+//    g1.InserirDados(prod);
+//    
         JOptionPane.showMessageDialog(null,"Adcionando ao usuário com sucesso");        // TODO add your handling code here:
     }//GEN-LAST:event_addBtnActionPerformed
 

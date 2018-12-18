@@ -21,6 +21,7 @@ String produto;
  String url;
  String wpp;
  String endereco;
+ 
     public String getNome() {
         return nome;
     }
@@ -61,6 +62,23 @@ String produto;
         this.endereco = endereco;
     }
 
+//Inicio    
+    
+    public String[] SetarDados(){
+
+        String nms[]={nome,url,endereco,wpp,produto};
+    return nms;
+    }
+    
+    
+    
+    
+    
+ public String QuemSouEu(Object ob){
+    return ob.getClass().getSimpleName();
+    }
+    
+    
     
     conexao con = new conexao();
     PreparedStatement stmt;

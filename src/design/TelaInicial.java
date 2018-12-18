@@ -190,12 +190,25 @@ JOptionPane.showMessageDialog(null, "welcome "+txtnome.getText());
 conexao con = new conexao();
 Connection con2=con.conectando();
 pessoa p1=new pessoa();
-Generica g1 = new Generica();
-Generica.GO g2 = new Generica().new GO();
+p1.setEndereco("alx");
+Generica g1 =new Generica();
+produto prod =new produto();
 if(con2!=null){
         System.out.println("conectou");
-  
-    System.out.println("objeto:"+g2.QuemSouEu(p1).getClass().getSimpleName());
+        /*
+    System.out.println("Colunas:"+g1.column("pessoa"));
+    System.out.println("CamposDivididos:"+g1.camposDivididos("pessoa")[1]);
+    System.out.println("QuantColumns:"+g1.QuantColumn("pessoa"));
+    System.out.println("interr:"+g1.interr("pessoa"));
+   System.out.println("vars:"+g1.vars(p1)[1]);
+   for(byte i=0;i<+(g1.QuantColumn("pessoa")+g1.QuantColumn("produto"));i++)
+   System.out.println("vars:"+g1.vars(p1,prod)[i]);
+   */
+        prod.setTipo("rosa");
+        p1.setNome("alx");
+        p1.setProduto("alx2");
+        p1.setUrl("alx3");
+        g1.imp(p1);
 
 }else{
             System.out.println("not connected");
