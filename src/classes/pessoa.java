@@ -16,11 +16,11 @@ import java.sql.SQLException;
  * @author home
  */
 public class pessoa {
-private String nome;
-private String produto;
-private String url;
-private String wpp;
-private String endereco;
+String nome;
+String produto;
+ String url;
+ String wpp;
+ String endereco;
     public String getNome() {
         return nome;
     }

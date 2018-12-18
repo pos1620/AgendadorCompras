@@ -6,8 +6,7 @@
 
 package design;
 
-import classes.conexao;
-import classes.pessoa;
+import classes.*;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 
@@ -191,13 +190,12 @@ JOptionPane.showMessageDialog(null, "welcome "+txtnome.getText());
 conexao con = new conexao();
 Connection con2=con.conectando();
 pessoa p1=new pessoa();
+Generica g1 = new Generica();
+Generica.GO g2 = new Generica().new GO();
 if(con2!=null){
         System.out.println("conectou");
-        p1.setNome("alx");
-//p1.vars()[0]="ko";
-        p1.setProduto("alx2");
-        System.out.println("nome:"+p1.vars()[0]);
-        System.out.println("produto:"+p1.vars()[1]);
+  
+    System.out.println("objeto:"+g2.QuemSouEu(p1).getClass().getSimpleName());
 
 }else{
             System.out.println("not connected");
