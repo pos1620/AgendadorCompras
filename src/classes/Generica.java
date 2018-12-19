@@ -16,9 +16,9 @@ import java.sql.SQLException;
  * @author home
  */
 public class Generica{
-  
-    public String QuemSouEu(Object ob){
-    return ob.getClass().getSimpleName();
+String nome;  
+    public String QuemSouEu(){
+    return this.getClass().getSimpleName();
     }
     
     
@@ -31,9 +31,9 @@ public class Generica{
 //connecting to database
     public void InserirDados(pessoa ob){
         try{	
-	stmt = con.conectando().prepareStatement("insert into "+QuemSouEu(ob)+" ("+column(QuemSouEu(ob))+") values ("+interr(QuemSouEu(ob))+")");
+	stmt = con.conectando().prepareStatement("insert into "+QuemSouEu()+" ("+column(QuemSouEu())+") values ("+interr(QuemSouEu())+")");
         
-        for(byte i=1;i<=QuantColumn(QuemSouEu(ob));i++)
+        for(byte i=1;i<=QuantColumn(QuemSouEu());i++)
         stmt.setString(i,ob.SetarDados()[i-1]);
         stmt.execute();
         stmt.close();
@@ -45,9 +45,9 @@ catch (SQLException e) {
     }//fim metódo InserirDados
 public void InserirDados(produto ob){
         try{	
-	stmt = con.conectando().prepareStatement("insert into "+QuemSouEu(ob)+" ("+column(QuemSouEu(ob))+") values ("+interr(QuemSouEu(ob))+")");
+	stmt = con.conectando().prepareStatement("insert into "+QuemSouEu()+" ("+column(QuemSouEu())+") values ("+interr(QuemSouEu())+")");
         
-        for(byte i=1;i<=QuantColumn(QuemSouEu(ob));i++)
+        for(byte i=1;i<=QuantColumn(QuemSouEu());i++)
         stmt.setString(i,ob.SetarDados()[i-1]);
         stmt.execute();
         stmt.close();
@@ -124,7 +124,7 @@ String nms[]=null;
 pessoa p1=new pessoa(); 
 produto prod=new produto();
 
-System.out.println("obj"+QuemSouEu(ob));
+System.out.println("obj"+QuemSouEu());
      if(ob.getClass().getSimpleName().equals("pessoa")){
 nms=p1.SetarDados();
      }else{

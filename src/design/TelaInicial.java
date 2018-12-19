@@ -204,12 +204,6 @@ if(con2!=null){
    for(byte i=0;i<+(g1.QuantColumn("pessoa")+g1.QuantColumn("produto"));i++)
    System.out.println("vars:"+g1.vars(p1,prod)[i]);
    */
-        prod.setTipo("rosa");
-        p1.setNome("alx");
-        p1.setProduto("alx2");
-        p1.setUrl("alx3");
-        g1.imp(p1);
-
 }else{
             System.out.println("not connected");
 }

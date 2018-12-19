@@ -15,7 +15,7 @@ import java.sql.SQLException;
  *
  * @author home
  */
-public class produto {
+public class produto{
     public String descricao;
     public float valor;
 
@@ -41,39 +41,48 @@ public class produto {
     return nms;
     }
     
-    
-    
-     public String QuemSouEu(Object ob){
-    return ob.getClass().getSimpleName();
+  /*
+    retorna nome do objeto,classe
+    */  
+ public String QuemSouEu(){
+    return this.getClass().getSimpleName();
     }
-
+    
     
     conexao con = new conexao();
     PreparedStatement stmt;
     //connecting to database
     public void InserirDados(){
     try{	
-	stmt = con.conectando().prepareStatement("insert into pessoa ("+column()+") values ("+interr()+")");
+	stmt = con.conectando().prepareStatement("insert into "+QuemSouEu()+" ("+column()+") values ("+interr()+")");
+PreparedStatement ps=con.conectando().prepareStatement("select * from "+QuemSouEu()+"");
+ResultSet rs=ps.executeQuery();
+ResultSetMetaData rsmd=rs.getMetaData();
         
-        
+
         for(byte i=1;i<=QuantColumn();i++)
-        stmt.setString(i,vars()[i-1]);
+            if(rsmd.getColumnTypeName(i).equalsIgnoreCase("float"))
+            stmt.setFloat(i,Float.parseFloat(vars()[i-1]));
+        else
+            stmt.setString(i,vars()[i-1]);
         stmt.execute();
         stmt.close();
-	System.out.println("Gravado!");
-	con.conectando().close();
-    } 
-catch (SQLException e) {
+	System.out.println(QuemSouEu()+":Gravado!");
+	con.conectando().close();   
+    }
+    catch (SQLException e) {
 }
     }//fim metódo InserirDados
 
 
     
-    
+    /*
+    retorna quantidade de campo no banco
+    */
     public byte QuantColumn(){
     byte i=0;
             try{
-PreparedStatement ps=con.conectando().prepareStatement("select * from pessoa");
+PreparedStatement ps=con.conectando().prepareStatement("select * from "+QuemSouEu()+"");
 ResultSet rs=ps.executeQuery();
 ResultSetMetaData rsmd=rs.getMetaData();
 
@@ -87,11 +96,14 @@ i=(byte) rsmd.getColumnCount();
     
     
     
-    
+    /*
+    prenenche  nom edos campos para insera~~o dos dados.
+    ex. (nome,prod,desc)
+    */
     public String column(){
         String nms="";
             try{
-PreparedStatement ps=con.conectando().prepareStatement("select * from pessoa");
+PreparedStatement ps=con.conectando().prepareStatement("select * from "+QuemSouEu()+"");
 ResultSet rs=ps.executeQuery();
 ResultSetMetaData rsmd=rs.getMetaData();
 
@@ -107,7 +119,10 @@ ResultSetMetaData rsmd=rs.getMetaData();
 return nms;
 }//fim metódo columns
     
-
+/*
+    quantidade de parametro correspondente ao qquantiddae de campo no banco
+    ex. vlues(?,?,?)
+    */
  public String interr(){
  String interr="?";
  
@@ -119,13 +134,13 @@ return nms;
  return interr;
  }//fim metodo interr   
     
- 
+ /*
  public String[] camposDivididos(){
 String[] args=column().split("[,]");
 return args;
        //return Arrays.toString(args);
 }//fim metódo camposDivididos
-
+*/
  
  public String[] vars(){
 //String x="\"nome\"".replace("\""," ");
@@ -133,22 +148,35 @@ String n[]={descricao,Float.toString(valor)};
  return n;
  }//fim metodo vars 
 
+  /*  
+    public void imp(){
+        try{
+PreparedStatement ps=con.conectando().prepareStatement("select * from "+QuemSouEu()+"");
+ResultSet rs=ps.executeQuery();
+ResultSetMetaData rsmd=rs.getMetaData();
+        System.out.println("Column Type Name of 1st column: "+rsmd.getColumnTypeName(2));
+for(byte i=1;i<=QuantColumn();i++)
+        if(rsmd.getColumnTypeName(i).equalsIgnoreCase("float"))
+        System.out.println("vc converteu para float"+vars()[i-1]);
+        else
+        System.out.println("Column Type Name of 1st column: "+rsmd.getColumnTypeName(2));
+
+            }
+    catch(SQLException e){
+    }
+    }
+    */
+ 
+ /*
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+public void ConverterTipo(String tipo){
+String tipo2=tipo;
+    if(tipo2.equals("float"))
+valor=Float.parseFloat(vars()[1]);
+
+
+}
+*/
+
 }//fim classe produto
 

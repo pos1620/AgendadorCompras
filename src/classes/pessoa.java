@@ -15,7 +15,7 @@ import java.sql.SQLException;
  *
  * @author home
  */
-public class pessoa {
+public class pessoa{
 String nome;
 String produto;
  String url;
@@ -72,12 +72,9 @@ String produto;
     
     
     
-    
-    
- public String QuemSouEu(Object ob){
-    return ob.getClass().getSimpleName();
+ public String QuemSouEu(){
+    return this.getClass().getSimpleName();
     }
-    
     
     
     conexao con = new conexao();
@@ -85,16 +82,23 @@ String produto;
     //connecting to database
     public void InserirDados(){
     try{	
-	stmt = con.conectando().prepareStatement("insert into pessoa ("+column()+") values ("+interr()+")");
+	stmt = con.conectando().prepareStatement("insert into "+QuemSouEu()+" ("+column()+") values ("+interr()+")");
+PreparedStatement ps=con.conectando().prepareStatement("select * from "+QuemSouEu()+"");
+ResultSet rs=ps.executeQuery();
+ResultSetMetaData rsmd=rs.getMetaData();
+
         
-        
-        for(byte i=1;i<=QuantColumn();i++)
-        stmt.setString(i,vars()[i-1]);
+       for(byte i=1;i<=QuantColumn();i++)
+            if(rsmd.getColumnTypeName(i).equalsIgnoreCase("float"))
+            stmt.setFloat(i,Float.parseFloat(vars()[i-1]));
+        else
+            stmt.setString(i,vars()[i-1]);
         stmt.execute();
         stmt.close();
-	System.out.println("Gravado!");
-	con.conectando().close();
-    } 
+	System.out.println(QuemSouEu()+":Gravado!");
+	con.conectando().close();   
+    }
+
 catch (SQLException e) {
 }
     }//fim metódo InserirDados
@@ -105,7 +109,7 @@ catch (SQLException e) {
     public byte QuantColumn(){
     byte i=0;
             try{
-PreparedStatement ps=con.conectando().prepareStatement("select * from pessoa");
+PreparedStatement ps=con.conectando().prepareStatement("select * from "+QuemSouEu()+"");
 ResultSet rs=ps.executeQuery();
 ResultSetMetaData rsmd=rs.getMetaData();
 
@@ -123,7 +127,7 @@ i=(byte) rsmd.getColumnCount();
     public String column(){
         String nms="";
             try{
-PreparedStatement ps=con.conectando().prepareStatement("select * from pessoa");
+PreparedStatement ps=con.conectando().prepareStatement("select * from "+QuemSouEu()+"");
 ResultSet rs=ps.executeQuery();
 ResultSetMetaData rsmd=rs.getMetaData();
 
@@ -151,13 +155,14 @@ return nms;
  return interr;
  }//fim metodo interr   
     
- 
+ /*
  public String[] camposDivididos(){
 String[] args=column().split("[,]");
 return args;
+ 
        //return Arrays.toString(args);
 }//fim metódo camposDivididos
-
+*/
  
  public String[] vars(){
 //String x="\"nome\"".replace("\""," ");

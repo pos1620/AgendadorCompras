@@ -145,9 +145,12 @@ public class Adicionar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void setBranco(){
+    public void setBranco(Object ob){
+        
 pessoa p1 = new pessoa();
-        for(byte i=0;i<p1.QuantColumn();i++){
+produto prod = new produto();
+if(ob.getClass().getSimpleName().equalsIgnoreCase("pessoa")){        
+for(byte i=0;i<p1.QuantColumn();i++){
             if(p1.vars()[i]==null)
                 switch(i){
                     case 1:
@@ -167,10 +170,23 @@ pessoa p1 = new pessoa();
                    //     break;
                 }
 }
+}else{
+ for(byte i=0;i<prod.QuantColumn();i++){
+            if(prod.vars()[i]==null)
+                switch(i){
+                    case 1:
+                        prod.setTipo("");
+                    //    break;
+                    case 2:
+                        prod.setValor(0);
+                    //    break;
+                                    }
+}   
+}
         //teste de impress~~ao dos valores,p saber se est~~ao imprimindo os valores 'vazio'
-            System.out.println(p1.camposDivididos()[1]+":"+p1.getProduto());
-            System.out.println(p1.camposDivididos()[2]+":"+p1.getWpp());
-            System.out.println(p1.camposDivididos()[3]+":"+p1.getUrl());
+//            System.out.println(p1.camposDivididos()[1]+":"+p1.getProduto());
+//            System.out.println(p1.camposDivididos()[2]+":"+p1.getWpp());
+//            System.out.println(p1.camposDivididos()[3]+":"+p1.getUrl());
     
 }
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
@@ -182,13 +198,14 @@ pessoa p1 = new pessoa();
         p1.setProduto(produtoTxt.getText());
         p1.setEndereco(bairroTxt.getText());
         p1.setUrl(urlTxt.getText());
-        setBranco();
+        setBranco(p1);
     //  p1.InserirDados();
-      g1.InserirDados(p1);
+      p1.InserirDados();
       
         prod.setTipo(descTxt.getText());
         prod.setValor(Float.parseFloat(valorTxt.getText()));
-      g1.InserirDados(prod);
+      setBranco(prod);
+        prod.InserirDados();
         
 //    g1.InserirDados(prod);
 //    
