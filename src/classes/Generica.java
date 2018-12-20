@@ -138,7 +138,7 @@ nms=prod.SetarDados();
 String nms[]=null;
 
 
-String n[]={ob.nome,ob.endereco,ob.produto,ob.url,ob.wpp,prod.getDescricao(),Float.toString(prod.getValor())};
+String n[]={ob.nome,ob.bairro,ob.produto,ob.url,ob.wpp,prod.getDescricao(),Float.toString(prod.getValor())};
 nms=n;
             return nms;
  }//fim metodo vars

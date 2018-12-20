@@ -163,7 +163,7 @@ for(byte i=0;i<p1.QuantColumn();i++){
                         p1.setProduto("");
                     //    break;
                     case 4:
-                        p1.setEndereco("");
+                        p1.setBairro("");
                     //    break;
                     case 5:
                         p1.setUrl("");
@@ -175,7 +175,7 @@ for(byte i=0;i<p1.QuantColumn();i++){
             if(prod.vars()[i]==null)
                 switch(i){
                     case 1:
-                        prod.setTipo("");
+                        prod.setDescricao("");
                     //    break;
                     case 2:
                         prod.setValor(0);
@@ -196,15 +196,16 @@ for(byte i=0;i<p1.QuantColumn();i++){
         p1.setNome(nomeTxt.getText());
         p1.setWpp(wppTxt.getText());
         p1.setProduto(produtoTxt.getText());
-        p1.setEndereco(bairroTxt.getText());
+        p1.setBairro(bairroTxt.getText());
         p1.setUrl(urlTxt.getText());
-        setBranco(p1);
-    //  p1.InserirDados();
+       // setBranco(p1);
+      p1.VarsComBidimession();
       p1.InserirDados();
       
-        prod.setTipo(descTxt.getText());
+        prod.setDescricao(descTxt.getText());
         prod.setValor(Float.parseFloat(valorTxt.getText()));
-      setBranco(prod);
+      //setBranco(prod);
+        prod.VarsComBidimession();
         prod.InserirDados();
         
 //    g1.InserirDados(prod);

@@ -23,7 +23,7 @@ public class produto{
         return descricao;
     }
 
-    public void setTipo(String descricao) {
+    public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
 
@@ -134,13 +134,13 @@ return nms;
  return interr;
  }//fim metodo interr   
     
- /*
+ 
  public String[] camposDivididos(){
 String[] args=column().split("[,]");
 return args;
        //return Arrays.toString(args);
 }//fim metódo camposDivididos
-*/
+
  
  public String[] vars(){
 //String x="\"nome\"".replace("\""," ");
@@ -148,6 +148,39 @@ String n[]={descricao,Float.toString(valor)};
  return n;
  }//fim metodo vars 
 
+ 
+  
+  public void VarsComBidimession(){
+//pessoa p1 = new pessoa();
+//produto prod = new produto();
+String n[][]={camposDivididos(),vars()};
+     byte t1=(byte)n.length;
+     byte t2=0;
+     String nms[][]=n;
+//  if(QuemSouEu().equalsIgnoreCase("pessoa")){             
+for(byte i=0;i<QuantColumn();i++){
+// System.out.println("nome do campo:"+n[t2][i]+"----->,valor do campo:"+n[t2+1][i]);
+  if(n[t2+1][i]==null)
+     switch(n[t2][i]){
+         case "descricao":
+             descricao="";
+         //    break;
+         case "valor":
+             valor=0;
+     //break;
+     }
+  
+  }
+ // System.out.println("tamanho:"+t1);
+ System.out.println("Objeto:"+QuemSouEu());
+   for(byte i=0;i<QuantColumn();i++){
+ System.out.println("nome do campo:"+n[t2][i]+"----->,valor do campo:"+n[t2+1][i]);
+ System.out.println("nome do campo:"+n[t2][i]+"----->,valor do campo:"+vars()[i]);
+  }
+  //}
+  //else{
+ // }
+  }//fim metodo VarsComBidimession
   /*  
     public void imp(){
         try{
@@ -178,5 +211,6 @@ valor=Float.parseFloat(vars()[1]);
 }
 */
 
+ 
 }//fim classe produto
 
