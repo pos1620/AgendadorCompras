@@ -195,6 +195,7 @@ produto prod =new produto();
 if(con2!=null){
         System.out.println("conectou");
 //      prod.setDescricao("notebook");
+    System.out.println(prod.valor==1);
         p1.VarsComBidimession();
             prod.VarsComBidimession();
         

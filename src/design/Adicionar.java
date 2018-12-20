@@ -203,9 +203,14 @@ for(byte i=0;i<p1.QuantColumn();i++){
       p1.InserirDados();
       
         prod.setDescricao(descTxt.getText());
+        if(valorTxt.getText().isEmpty()){
+        prod.setValor(0);
+        }
+        else{
         prod.setValor(Float.parseFloat(valorTxt.getText()));
-      //setBranco(prod);
-        prod.VarsComBidimession();
+        }
+//setBranco(prod);
+       prod.VarsComBidimession();
         prod.InserirDados();
         
 //    g1.InserirDados(prod);

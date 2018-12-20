@@ -198,8 +198,8 @@ for(byte i=0;i<QuantColumn();i++){
  // System.out.println("tamanho:"+t1);
  System.out.println("Objeto:"+QuemSouEu());
    for(byte i=0;i<QuantColumn();i++){
- System.out.println("nome do campo:"+n[t2][i]+"----->,valor do campo:"+n[t2+1][i]);
- System.out.println("nome do campo:"+n[t2][i]+"----->,valor do campo:"+vars()[i]);
+ //System.out.println("nome do campo:"+n[t2][i]+"----->,valor do campo:"+n[t2+1][i]);
+ //System.out.println("nome do campo:"+n[t2][i]+"----->,valor do campo:"+vars()[i]);
   }
   //}
   //else{

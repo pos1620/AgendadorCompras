@@ -160,7 +160,7 @@ String n[][]={camposDivididos(),vars()};
 //  if(QuemSouEu().equalsIgnoreCase("pessoa")){             
 for(byte i=0;i<QuantColumn();i++){
 // System.out.println("nome do campo:"+n[t2][i]+"----->,valor do campo:"+n[t2+1][i]);
-  if(n[t2+1][i]==null)
+  if(n[t2+1][i]==null||n[t2+1][i].equals(0))
      switch(n[t2][i]){
          case "descricao":
              descricao="";
@@ -171,15 +171,15 @@ for(byte i=0;i<QuantColumn();i++){
      }
   
   }
- // System.out.println("tamanho:"+t1);
+ /* System.out.println("tamanho:"+t1);  //desnecessário 
  System.out.println("Objeto:"+QuemSouEu());
    for(byte i=0;i<QuantColumn();i++){
  System.out.println("nome do campo:"+n[t2][i]+"----->,valor do campo:"+n[t2+1][i]);
  System.out.println("nome do campo:"+n[t2][i]+"----->,valor do campo:"+vars()[i]);
   }
-  //}
-  //else{
- // }
+  }
+  else{
+  }*/
   }//fim metodo VarsComBidimession
   /*  
     public void imp(){
