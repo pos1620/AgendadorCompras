@@ -143,23 +143,28 @@ return args;
        //return Arrays.toString(args);
 }//fim metódo camposDivididos
 
+ /*
+ retorna variaveis nomes da classe
+ */
  public String[] camposDivididos2(){
 String[] args={"descricao","valor"};
 return args;
        //return Arrays.toString(args);
-}
- 
+}//fim metódo camposDivididos
+
+ /*
+ retorna os valores dos gets e seters
+ */
  public String[] vars(){
-//String x="\"nome\"".replace("\""," ");
 String n[]={descricao,Float.toString(valor)};
  return n;
  }//fim metodo vars 
 
  
-  
+  /*
+teste de valor null,se houver valor null pela posião de cada variavel sete os valores de acordo
+ */ 
   public void VarsComBidimession(){
-//pessoa p1 = new pessoa();
-//produto prod = new produto();
 String n[][]={camposDivididos(),vars()};
      byte t1=(byte)n.length;
      byte t2=0;
@@ -178,16 +183,7 @@ for(byte i=0;i<QuantColumn();i++){
      }
   
   }
-  /* System.out.println("tamanho:"+t1);  //desnecessário 
- System.out.println("Objeto:"+QuemSouEu());
-   for(byte i=0;i<QuantColumn();i++){
- System.out.println("nome do campo:"+n[t2][i]+"----->,valor do campo:"+n[t2+1][i]);
- System.out.println("nome do campo:"+n[t2][i]+"----->,valor do campo:"+vars()[i]);
-  }
-  }
-  else{
-  }*/
-  }//fim metodo VarsComBidimession
+}//fim metodo VarsComBidimession
   
 
 /*
@@ -199,7 +195,7 @@ public byte Matriz(){
 String n[][]={camposDivididos(),vars()};
 byte contador =(byte)vars().length;
 return contador;
-        }
+        }//fim classe matriz
  
   /*
 verifica se houve add de campo no banco o resultará na add de novos attrb na classe
@@ -212,36 +208,7 @@ for(byte j=0;j<Matriz();j++){
     System.out.println("banco:"+camposDivididos()[i]+"variavéis"+camposDivididos2()[j]);
 }
 }
- } 
-  /*  
- public void imp(){
-        try{
-PreparedStatement ps=con.conectando().prepareStatement("select * from "+QuemSouEu()+"");
-ResultSet rs=ps.executeQuery();
-ResultSetMetaData rsmd=rs.getMetaData();
-        System.out.println("Column Type Name of 1st column: "+rsmd.getColumnTypeName(2));
-for(byte i=1;i<=QuantColumn();i++)
-        if(rsmd.getColumnTypeName(i).equalsIgnoreCase("float"))
-        System.out.println("vc converteu para float"+vars()[i-1]);
-        else
-        System.out.println("Column Type Name of 1st column: "+rsmd.getColumnTypeName(2));
-
-            }
-    catch(SQLException e){
-    }
-    }
-    */
- 
- /*
-    
-public void ConverterTipo(String tipo){
-String tipo2=tipo;
-    if(tipo2.equals("float"))
-valor=Float.parseFloat(vars()[1]);
-
-
-}
-*/
+ }//fim classe VerificarBanco 
 
  
 }//fim classe produto

@@ -29,13 +29,6 @@
 
 
 
-
-
-
-
-
-
-
 public void ConverterTipo(String tipo){
 switch(tipo){
 case "String":
@@ -59,3 +52,105 @@ return tipo;
 }
 
 ConverterTipo(float) vars()[i-1]
+
+
+
+
+
+  /*  
+ public void imp(){
+        try{
+PreparedStatement ps=con.conectando().prepareStatement("select * from "+QuemSouEu()+"");
+ResultSet rs=ps.executeQuery();
+ResultSetMetaData rsmd=rs.getMetaData();
+        System.out.println("Column Type Name of 1st column: "+rsmd.getColumnTypeName(2));
+for(byte i=1;i<=QuantColumn();i++)
+        if(rsmd.getColumnTypeName(i).equalsIgnoreCase("float"))
+        System.out.println("vc converteu para float"+vars()[i-1]);
+        else
+        System.out.println("Column Type Name of 1st column: "+rsmd.getColumnTypeName(2));
+
+            }
+    catch(SQLException e){
+    }
+    }
+    */
+ 
+ /*
+    
+public void ConverterTipo(String tipo){
+String tipo2=tipo;
+    if(tipo2.equals("float"))
+valor=Float.parseFloat(vars()[1]);
+
+
+}
+*/
+
+
+
+  /* System.out.println("tamanho:"+t1);  //desnecessário 
+ System.out.println("Objeto:"+QuemSouEu());
+   for(byte i=0;i<QuantColumn();i++){
+ System.out.println("nome do campo:"+n[t2][i]+"----->,valor do campo:"+n[t2+1][i]);
+ System.out.println("nome do campo:"+n[t2][i]+"----->,valor do campo:"+vars()[i]);
+  }
+  }
+  else{
+  }*/
+  
+  
+  
+  
+  
+    /*
+ public Field[] vars2(){
+//String x="\"nome\"".replace("\""," ");
+Field[] fields = pessoa.class.getDeclaredFields();
+     Field nms[]=fields;
+
+            return nms;
+ }//fim metodo vars2
+ */
+/*
+public void imp(){
+Field[] fields = pessoa.class.getDeclaredFields();
+    System.out.println(fields.length);         
+//for (Field field : fields)
+    for(byte i=0;i<QuantColumn();i++){
+    System.out.println(fields[i].getGenericType().getTypeName()+","+camposDivididos()[i]);
+    //System.out.println(fields[i].get(i)+","+camposDivididos()[i]);
+    System.out.println(fields[i].getGenericType().getTypeName().equalsIgnoreCase(vars()[i])?"igual":"dff");
+}
+}
+ */
+ 
+ 
+ 
+
+public void imp(){
+    String x[][] = {{"nome","produto"},{nome,produto}};
+    Field[] fields = pessoa.class.getDeclaredFields();
+
+  //  for(byte i=0;i<QuantColumn();i++)
+//    System.out.println("nome do campo"+x[i][i]);
+   System.out.println("nome do campo"+x[1-1][1]+"valor do campo"+x[1][1]);
+    
+}
+
+
+
+ // System.out.println("tamanho:"+t1);
+ System.out.println("Objeto:"+QuemSouEu());
+   for(byte i=0;i<QuantColumn();i++){
+ //System.out.println("nome do campo:"+n[t2][i]+"----->,valor do campo:"+n[t2+1][i]);
+ //System.out.println("nome do campo:"+n[t2][i]+"----->,valor do campo:"+vars()[i]);
+  }
+  //}
+  //else{
+ // }
+
+ 
+ 
+     //Field[] fields = pessoa.class.getDeclaredFields();
+    //fields.length;

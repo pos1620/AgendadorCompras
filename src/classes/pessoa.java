@@ -73,7 +73,9 @@ String produto;
     }
     
     
-    
+    /*
+    nome da classe
+    */
  public String QuemSouEu(){
     return this.getClass().getSimpleName();
     }
@@ -107,7 +109,9 @@ catch (SQLException e) {
 
 
     
-    
+    /*
+    retorna quant de colunas no banco
+    */
     public byte QuantColumn(){
     byte i=0;
             try{
@@ -125,7 +129,8 @@ i=(byte) rsmd.getColumnCount();
     
     
     
-    
+/*
+    retorna coluns do banco*/    
     public String column(){
         String nms="";
             try{
@@ -148,34 +153,31 @@ return nms;
 
  public String interr(){
  String interr="?";
- 
- for(byte j=1;j<=QuantColumn();j++)
+     for(byte j=1;j<=QuantColumn();j++)
         if(j==QuantColumn())
-    interr+="";
-            else
+        interr+="";
+        else
     interr+=",?";
  return interr;
  }//fim metodo interr   
     
 
  public String[] vars(){
-//String x="\"nome\"".replace("\""," ");
 String n[]={nome,produto,url,wpp,bairro};
      String nms[]=n;
 
             return nms;
  }//fim metodo vars
- 
+
+ /*
+teste de valor null,se houver valor null pela posião de cada variavel sete os valores de acordo
+ */
   public void VarsComBidimession(){
-//pessoa p1 = new pessoa();
-//produto prod = new produto();
 String n[][]={camposDivididos(),vars()};
      byte t1=(byte)n.length;
      byte t2=0;
      String nms[][]=n;
-//  if(QuemSouEu().equalsIgnoreCase("pessoa")){             
-for(byte i=0;i<QuantColumn();i++){
- //System.out.println("nome do campo:"+n[t2][i]+"----->,valor do campo:"+n[t2+1][i]);
+for(byte i=0;i<QuantColumn();i++)
   if(n[t2+1][i]==null)
      switch(n[t2][i]){
          case "nome":
@@ -195,16 +197,6 @@ for(byte i=0;i<QuantColumn();i++){
          //   break; 
      }
   
-  }
- // System.out.println("tamanho:"+t1);
- System.out.println("Objeto:"+QuemSouEu());
-   for(byte i=0;i<QuantColumn();i++){
- //System.out.println("nome do campo:"+n[t2][i]+"----->,valor do campo:"+n[t2+1][i]);
- //System.out.println("nome do campo:"+n[t2][i]+"----->,valor do campo:"+vars()[i]);
-  }
-  //}
-  //else{
- // }
   }//fim metodo VarsComBidimession
 
   
@@ -215,68 +207,37 @@ for(byte i=0;i<QuantColumn();i++){
  public String[] camposDivididos(){
 String[] args=column().split("[,]");
 return args;
- 
-       //return Arrays.toString(args);
 }//fim metódo camposDivididos
 
 public String[] camposDivididos2(){
 String[] args={"nome","produto","wpp","url","bairro"};
 return args;
-       //return Arrays.toString(args);
-}
+}//fim metodo camposDiivididos2
 
 
+/*
+  retorna quantidade de attrb na classe
+  */
 public byte Matriz(){
-    //Field[] fields = pessoa.class.getDeclaredFields();
-    //fields.length;
 String n[][]={camposDivididos(),vars()};
 byte contador =(byte)vars().length;
 return contador;
-        }
+        }//fim classe matriz
  
   
+
+/*
+verifica se houve add de campo no banco o resultará na add de novos attrb na classe
+*/
  public void VerificarBanco(){
  if(QuantColumn()!=Matriz())
  JOptionPane.showMessageDialog(null,"Mudamos Banco de dados variavéis!");
 for(byte i=0;i<QuantColumn();i++){
 for(byte j=0;j<Matriz();j++){
     System.out.println("banco:"+camposDivididos()[i]+"variavéis"+camposDivididos2()[j]);
-}
-}
- } 
+}}
+ }//fim classe VerificarBanco  
   
-  /*
- public Field[] vars2(){
-//String x="\"nome\"".replace("\""," ");
-Field[] fields = pessoa.class.getDeclaredFields();
-     Field nms[]=fields;
-
-            return nms;
- }//fim metodo vars2
- */
-/*
-public void imp(){
-Field[] fields = pessoa.class.getDeclaredFields();
-    System.out.println(fields.length);         
-//for (Field field : fields)
-    for(byte i=0;i<QuantColumn();i++){
-    System.out.println(fields[i].getGenericType().getTypeName()+","+camposDivididos()[i]);
-    //System.out.println(fields[i].get(i)+","+camposDivididos()[i]);
-    System.out.println(fields[i].getGenericType().getTypeName().equalsIgnoreCase(vars()[i])?"igual":"dff");
-}
-}
- */
-
-public void imp(){
-    String x[][] = {{"nome","produto"},{nome,produto}};
-    Field[] fields = pessoa.class.getDeclaredFields();
-
-  //  for(byte i=0;i<QuantColumn();i++)
-//    System.out.println("nome do campo"+x[i][i]);
-   System.out.println("nome do campo"+x[1-1][1]+"valor do campo"+x[1][1]);
-    
-}
-
 
 }//fim classe pessoa
 
