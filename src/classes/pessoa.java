@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
  *
  * @author home
  */
-public class pessoa{
+public class pessoa extends Generica{
 String nome;
 String produto;
  String url;
@@ -66,21 +66,8 @@ String produto;
 
 //Inicio    
     
-    public String[] SetarDados(){
-
-        String nms[]={nome,url,bairro,wpp,produto};
-    return nms;
-    }
     
-    
-    /*
-    nome da classe
-    */
- public String QuemSouEu(){
-    return this.getClass().getSimpleName();
-    }
-    
-    
+ 
     conexao con = new conexao();
     PreparedStatement stmt;
     //connecting to database
@@ -108,59 +95,6 @@ catch (SQLException e) {
     }//fim metódo InserirDados
 
 
-    
-    /*
-    retorna quant de colunas no banco
-    */
-    public byte QuantColumn(){
-    byte i=0;
-            try{
-PreparedStatement ps=con.conectando().prepareStatement("select * from "+QuemSouEu()+"");
-ResultSet rs=ps.executeQuery();
-ResultSetMetaData rsmd=rs.getMetaData();
-
-
-i=(byte) rsmd.getColumnCount();
-            }
-    catch(SQLException e){
-    }
-        return i;
-    }//fim metódo QuantColumn
-    
-    
-    
-/*
-    retorna coluns do banco*/    
-    public String column(){
-        String nms="";
-            try{
-PreparedStatement ps=con.conectando().prepareStatement("select * from "+QuemSouEu()+"");
-ResultSet rs=ps.executeQuery();
-ResultSetMetaData rsmd=rs.getMetaData();
-
-    for(byte j=1;j<=QuantColumn();j++)
-        if(j==QuantColumn())
-    nms+=rsmd.getColumnName(j);
-            else
-    nms+=rsmd.getColumnName(j)+",";
-            }    
-
-            catch(SQLException e){
-    }
-return nms;
-}//fim metódo columns
-    
-
- public String interr(){
- String interr="?";
-     for(byte j=1;j<=QuantColumn();j++)
-        if(j==QuantColumn())
-        interr+="";
-        else
-    interr+=",?";
- return interr;
- }//fim metodo interr   
-    
 
  public String[] vars(){
 String n[]={nome,produto,url,wpp,bairro};
@@ -200,20 +134,6 @@ for(byte i=0;i<QuantColumn();i++)
   }//fim metodo VarsComBidimession
 
   
-  
-  
-   //testes
- 
- public String[] camposDivididos(){
-String[] args=column().split("[,]");
-return args;
-}//fim metódo camposDivididos
-
-public String[] camposDivididos2(){
-String[] args={"nome","produto","wpp","url","bairro"};
-return args;
-}//fim metodo camposDiivididos2
-
 
 /*
   retorna quantidade de attrb na classe
@@ -224,7 +144,11 @@ byte contador =(byte)vars().length;
 return contador;
         }//fim classe matriz
  
-  
+  public String variaveisDaClasse(){
+String var="nome,produto,wpp,url,bairro";
+return var;
+}
+
 
 /*
 verifica se houve add de campo no banco o resultará na add de novos attrb na classe
@@ -234,7 +158,7 @@ verifica se houve add de campo no banco o resultará na add de novos attrb na cl
  JOptionPane.showMessageDialog(null,"Mudamos Banco de dados variavéis!");
 for(byte i=0;i<QuantColumn();i++){
 for(byte j=0;j<Matriz();j++){
-    System.out.println("banco:"+camposDivididos()[i]+"variavéis"+camposDivididos2()[j]);
+    System.out.println("banco:"+camposDivididos()[i]+"variavéis"+camposDivididos2(variaveisDaClasse())[j]);
 }}
  }//fim classe VerificarBanco  
   

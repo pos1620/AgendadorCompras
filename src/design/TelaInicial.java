@@ -195,8 +195,9 @@ produto prod =new produto();
 if(con2!=null){
         System.out.println("conectou");
 //      prod.setDescricao("notebook");
-    System.out.println(prod.Matriz());
-    System.out.println(p1.Matriz());
+    System.out.println(p1.QuemSouEu());
+    System.out.println(prod.QuemSouEu());
+    System.out.println(p1.camposDivididos2("valor,desc")[1-1]);
       
         
 }else{
