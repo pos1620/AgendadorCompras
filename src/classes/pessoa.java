@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -218,8 +219,31 @@ return args;
        //return Arrays.toString(args);
 }//fim metódo camposDivididos
 
+public String[] camposDivididos2(){
+String[] args={"nome","produto","wpp","url","bairro"};
+return args;
+       //return Arrays.toString(args);
+}
 
+
+public byte Matriz(){
+    //Field[] fields = pessoa.class.getDeclaredFields();
+    //fields.length;
+String n[][]={camposDivididos(),vars()};
+byte contador =(byte)vars().length;
+return contador;
+        }
+ 
   
+ public void VerificarBanco(){
+ if(QuantColumn()!=Matriz())
+ JOptionPane.showMessageDialog(null,"Mudamos Banco de dados variavéis!");
+for(byte i=0;i<QuantColumn();i++){
+for(byte j=0;j<Matriz();j++){
+    System.out.println("banco:"+camposDivididos()[i]+"variavéis"+camposDivididos2()[j]);
+}
+}
+ } 
   
   /*
  public Field[] vars2(){

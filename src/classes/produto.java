@@ -6,10 +6,12 @@
 
 package classes;
 
+//import com.mysql.jdbc.Field;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -141,6 +143,11 @@ return args;
        //return Arrays.toString(args);
 }//fim metódo camposDivididos
 
+ public String[] camposDivididos2(){
+String[] args={"descricao","valor"};
+return args;
+       //return Arrays.toString(args);
+}
  
  public String[] vars(){
 //String x="\"nome\"".replace("\""," ");
@@ -171,7 +178,7 @@ for(byte i=0;i<QuantColumn();i++){
      }
   
   }
- /* System.out.println("tamanho:"+t1);  //desnecessário 
+  /* System.out.println("tamanho:"+t1);  //desnecessário 
  System.out.println("Objeto:"+QuemSouEu());
    for(byte i=0;i<QuantColumn();i++){
  System.out.println("nome do campo:"+n[t2][i]+"----->,valor do campo:"+n[t2+1][i]);
@@ -181,8 +188,33 @@ for(byte i=0;i<QuantColumn();i++){
   else{
   }*/
   }//fim metodo VarsComBidimession
+  
+
+/*
+  retorna quantidade de attrb na classe
+  */
+public byte Matriz(){
+    //Field[] fields = pessoa.class.getDeclaredFields();
+    //fields.length;
+String n[][]={camposDivididos(),vars()};
+byte contador =(byte)vars().length;
+return contador;
+        }
+ 
+  /*
+verifica se houve add de campo no banco o resultará na add de novos attrb na classe
+*/
+ public void VerificarBanco(){
+ if(QuantColumn()!=Matriz())
+ JOptionPane.showMessageDialog(null,"Mudamos Banco de dados variavéis!");
+for(byte i=0;i<QuantColumn();i++){
+for(byte j=0;j<Matriz();j++){
+    System.out.println("banco:"+camposDivididos()[i]+"variavéis"+camposDivididos2()[j]);
+}
+}
+ } 
   /*  
-    public void imp(){
+ public void imp(){
         try{
 PreparedStatement ps=con.conectando().prepareStatement("select * from "+QuemSouEu()+"");
 ResultSet rs=ps.executeQuery();

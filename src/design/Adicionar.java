@@ -199,6 +199,7 @@ for(byte i=0;i<p1.QuantColumn();i++){
         p1.setBairro(bairroTxt.getText());
         p1.setUrl(urlTxt.getText());
        // setBranco(p1);
+      p1.VerificarBanco();
       p1.VarsComBidimession();
       p1.InserirDados();
       
@@ -210,7 +211,8 @@ for(byte i=0;i<p1.QuantColumn();i++){
         prod.setValor(Float.parseFloat(valorTxt.getText()));
         }
 //setBranco(prod);
-       prod.VarsComBidimession();
+       prod.VerificarBanco();
+        prod.VarsComBidimession();
         prod.InserirDados();
         
 //    g1.InserirDados(prod);
