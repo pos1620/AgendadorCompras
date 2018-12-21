@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.Arrays;
 
 /**
  *
@@ -104,5 +105,25 @@ public String[] camposDivididos3(String[] vars){
 String[] args=vars;
 return args;
 }
+
+
+public String[] ordenadosColumn(String... vars){
+String[] strNames = vars;
+ 
+        //sort String array using sort method
+        Arrays.sort(strNames);
+
+    return vars;
+}//fim classe ordenados
+
+
+
+public String[] variaveisDaClasse2(String vars){
+String[] variaveis={vars};
+String v1[]=variaveis;
+Arrays.sort(variaveis);
+return variaveis;
+}
+
 
 }//fim class generica

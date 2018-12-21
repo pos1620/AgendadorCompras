@@ -6,11 +6,12 @@
 
 package classes;
 
-import java.lang.reflect.Field;
+//import java.lang.reflect.Field;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+//import java.util.Arrays;
 import javax.swing.JOptionPane;
 
 /**
@@ -79,10 +80,12 @@ ResultSet rs=ps.executeQuery();
 ResultSetMetaData rsmd=rs.getMetaData();
 
         
-       for(byte i=1;i<=QuantColumn();i++)
-            if(rsmd.getColumnTypeName(i).equalsIgnoreCase("float"))
-            stmt.setFloat(i,Float.parseFloat(vars()[i-1]));
-        else
+       for(byte i=0;i<QuantColumn();i++)//{
+      for(byte j=0;j<QuantColumn();j++)//{
+       if(camposDivididos()[i].equalsIgnoreCase(VarsComBidi()[0][j]))
+            if(rsmd.getColumnTypeName(i+1).equalsIgnoreCase("float"))
+            stmt.setFloat(i+1,Float.parseFloat(VarsComBidi()[1][j]));
+       else
             stmt.setString(i,vars()[i-1]);
         stmt.execute();
         stmt.close();
@@ -134,6 +137,19 @@ for(byte i=0;i<QuantColumn();i++)
   }//fim metodo VarsComBidimession
 
   
+  /*
+  coloca os campos e os respectivos valores
+  e retorna o valor pela posião indicada
+  ex. n[campo]["valor"]
+  */
+  public String[][] VarsComBidi(){
+String n[][]={camposDivididos(),vars()};
+     byte t1=(byte)n.length;
+     byte t2=0;
+     String nms[][]=n;
+  return n;
+}//fim da classe VarsComBidimen()
+/*
 
 /*
   retorna quantidade de attrb na classe
@@ -144,7 +160,10 @@ byte contador =(byte)vars().length;
 return contador;
         }//fim classe matriz
  
-  public String variaveisDaClasse(){
+/*
+retorna variaveis da classe
+*/
+ public String variaveisDaClasse(){
 String var="nome,produto,wpp,url,bairro";
 return var;
 }
@@ -156,10 +175,10 @@ verifica se houve add de campo no banco o resultará na add de novos attrb na cl
  public void VerificarBanco(){
  if(QuantColumn()!=Matriz())
  JOptionPane.showMessageDialog(null,"Mudamos Banco de dados variavéis!");
-for(byte i=0;i<QuantColumn();i++){
-for(byte j=0;j<Matriz();j++){
-    System.out.println("banco:"+camposDivididos()[i]+"variavéis"+camposDivididos2(variaveisDaClasse())[j]);
-}}
+//for(byte i=0;i<QuantColumn();i++){
+//for(byte j=0;j<Matriz();j++){
+//    System.out.println("banco:"+camposDivididos()[i]+"variavéis"+camposDivididos2(variaveisDaClasse())[j]);
+//}}
  }//fim classe VerificarBanco  
   
 
