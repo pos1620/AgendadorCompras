@@ -126,4 +126,6 @@ return variaveis;
 }
 
 
+
+
 }//fim class generica

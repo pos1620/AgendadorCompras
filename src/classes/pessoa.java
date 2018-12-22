@@ -86,7 +86,7 @@ ResultSetMetaData rsmd=rs.getMetaData();
             if(rsmd.getColumnTypeName(i+1).equalsIgnoreCase("float"))
             stmt.setFloat(i+1,Float.parseFloat(VarsComBidi()[1][j]));
        else
-            stmt.setString(i,vars()[i-1]);
+            stmt.setString(i+1,VarsComBidi()[1][j]);
         stmt.execute();
         stmt.close();
 	System.out.println(QuemSouEu()+":Gravado!");
@@ -109,32 +109,13 @@ String n[]={nome,produto,url,wpp,bairro};
  /*
 teste de valor null,se houver valor null pela posião de cada variavel sete os valores de acordo
  */
+
   public void VarsComBidimession(){
-String n[][]={camposDivididos(),vars()};
-     byte t1=(byte)n.length;
-     byte t2=0;
-     String nms[][]=n;
 for(byte i=0;i<QuantColumn();i++)
-  if(n[t2+1][i]==null)
-     switch(n[t2][i]){
-         case "nome":
-             nome="";
-         //   break;
-         case "produto":
-             produto="";
-            break;
-         case "wpp":
-             wpp="";
-         //   break;
-         case "url":
-                url="";
-         //   break;
-         case "bairro":
-             bairro="";
-         //   break; 
-     }
-  
-  }//fim metodo VarsComBidimession
+  if(VarsComBidi()[1][i]==null)
+   VarsComBidi()[1][i]="";
+      
+}//fim metodo VarsComBidimession 
 
   
   /*

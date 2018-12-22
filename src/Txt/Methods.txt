@@ -154,3 +154,41 @@ public void imp(){
  
      //Field[] fields = pessoa.class.getDeclaredFields();
     //fields.length;
+
+	
+	
+	
+	
+	
+  /*
+teste de valor null,se houver valor null pela posião de cada variavel sete os valores de acordo
+ */ 
+ /*
+  public void VarsComBidimession(){
+String n[][]={camposDivididos(),vars()};
+     byte t1=(byte)n.length;
+     byte t2=0;
+     String nms[][]=n;
+for(byte i=0;i<QuantColumn();i++){
+  if(n[t2+1][i]==null||n[t2+1][i].equals(0))
+     switch(n[t2][i]){
+         case "descricao":
+             descricao="";
+         //    break;
+         case "valor":
+             valor=0;
+     //break;
+     }
+  
+  }
+}//fim metodo VarsComBidimession
+  */
+  /*
+teste de valor null,se houver valor null pela posião de cada variavel sete os valores de acordo
+ */  
+
+ 
+ 
+     // byte t1=(byte)n.length;
+    // byte t2=0;
+    // String nms[][]=n;

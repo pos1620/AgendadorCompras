@@ -58,7 +58,7 @@ ResultSetMetaData rsmd=rs.getMetaData();
             if(rsmd.getColumnTypeName(i+1).equalsIgnoreCase("float"))
             stmt.setFloat(i+1,Float.parseFloat(VarsComBidi()[1][j]));
         else
-            //    if(camposDivididos()[j].equalsIgnoreCase(VarsComBidimen()[j].toString()))
+      //          if(camposDivididos()[j].equalsIgnoreCase(VarsComBidimen()[j].toString()))
             stmt.setString(i+1,VarsComBidi()[1][j]);
         stmt.execute();
         stmt.close();
@@ -89,29 +89,16 @@ String n[]={descricao,Float.toString(valor)};
  return n;
  }//fim metodo vars 
 
- 
   /*
 teste de valor null,se houver valor null pela posião de cada variavel sete os valores de acordo
- */ 
+ */  
   public void VarsComBidimession(){
-String n[][]={camposDivididos(),vars()};
-     byte t1=(byte)n.length;
-     byte t2=0;
-     String nms[][]=n;
-for(byte i=0;i<QuantColumn();i++){
-  if(n[t2+1][i]==null||n[t2+1][i].equals(0))
-     switch(n[t2][i]){
-         case "descricao":
-             descricao="";
-         //    break;
-         case "valor":
-             valor=0;
-     //break;
-     }
-  
-  }
-}//fim metodo VarsComBidimession
-  
+for(byte i=0;i<QuantColumn();i++)
+  if(VarsComBidi()[1][i]==null)
+   VarsComBidi()[1][i]="";
+      
+}//fim metodo VarsComBidimession 
+ 
   /*
   coloca os campos e os respectivos valores
   e retorna o valor pela posião indicada
