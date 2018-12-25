@@ -195,7 +195,7 @@ produto prod =new produto();
 if(con2!=null){
         System.out.println("conectou");
 p1.setProduto("alx");
-
+p1.conv();
 }else{
             System.out.println("not connected");
 }
@@ -243,6 +243,10 @@ ad.setVisible(true);
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaInicial().setVisible(true);
+                conexao c1 = new conexao();
+               // c1.CriarTables();
+                c1.DropDb("gdx");
+                c1.DropTables();
             }
         });
     }

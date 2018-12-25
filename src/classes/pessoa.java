@@ -163,6 +163,14 @@ verifica se houve add de campo no banco o resultará na add de novos attrb na cl
  }//fim classe VerificarBanco  
   
 
+ public void conv(){
+String[] x={"1","2399"};
+
+for(String i:x)
+         System.out.println("valores:"+i);
+         System.out.println("valores:"+x[1].length());
+    }
+ 
 }//fim classe pessoa
 
 
